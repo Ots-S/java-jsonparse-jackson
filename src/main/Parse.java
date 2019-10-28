@@ -26,7 +26,7 @@ public class Parse {
             Double cityLongitude = contactObject.get("lon").asDouble();
 
             // TODO : get the "wind" attribute as an Wind object
-            JsonNode wind = root.get("wind");
+            Wind wind = objectMapper.convertValue(root.get("wind"), Wind.class);
 
             // TODO : get the "weather" attribute as an array of Weather objects
             Weather[] weathers = objectMapper.convertValue(root.get("weather"), Weather[].class);
